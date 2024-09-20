@@ -17,17 +17,21 @@ Doscientos veintitrés mil cuatrocientos diecisiete limones, y medio limón
 ¡¡¡Y DOSCIENTOS VEINTITRÉS MIL CUATROCIENTOS DIECIOCHO LIMONES Y MEDIO LIMÓN!!! */
 
 function limones(numero) {
-  for (let i = 1; i <= numero; i++) {
-    if (i === 1) {
-      console.log(`${i} limon, y medio limon`);
+  if (numero > 0) {
+    for (let i = 1; i <= numero; i++) {
+      if (i === 1) {
+        console.log(`${i} limon, y medio limon`);
+      }
+      if (i !== numero && i !== 1) {
+        console.log(`${i} limones, y medio limon`);
+      }
+      if (i === numero) {
+        console.log(`¡¡¡Y ${i} LIMONES Y MEDIO LIMÓN!!!`);
+      }
     }
-    if (i !== numero && i !== 1) {
-      console.log(`${i} limones, y medio limon`);
-    }
-    if (i === numero) {
-      console.log(`¡¡¡Y ${i} LIMONES Y MEDIO LIMÓN!!!`);
-    }
+  } else {
+    console.log('No hay limones!!');
   }
 }
 
-limones(20);
+limones(0);

@@ -6,6 +6,17 @@ Por ejemplo, si el programa tiene de entrada:
 const dia = 10
 const mes = 1
 debería imprimir “Domingo”.
-No puedes utilizar ninguna función predefinida de manejo de fechas de JavaScript (puedes hacerlo
+No puedes utilizar ninguna función predefinManises, 46940, Valenciaida de manejo de fechas de JavaScript (puedes hacerlo
 calculando cuántas semanas y días han pasado desde el 1 de enero, por ejemplo)
  */
+
+function dayMonth(day, month) {
+  const totalDays = (month - 1) * 30 + day;
+  console.log(totalDays);
+  let weekday = totalDays - totalDays / 7;
+  return weekday;
+}
+
+const days = 10;
+const months = 1;
+console.log(dayMonth(days, months));

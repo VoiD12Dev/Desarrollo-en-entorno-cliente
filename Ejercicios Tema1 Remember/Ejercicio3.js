@@ -13,30 +13,32 @@ anterior, la solución 0.10x5, 4x1, 1x5 sería incorrecta ya que se usan 11 mone
 en la solución del ejemplo en la que se utilizan 4.*/
 
 function countCoins(change, dispCoins) {
-  let tenCent = 0,
-    fiftyCent = 0,
-    oneDolar = 0,
-    twoDolars = 0,
-    fiveDolars = 0;
+  const monedas = {
+    tenCent: 0,
+    fiftyCent: 0,
+    oneDolar: 0,
+    twoDolars: 0,
+    fiveDolars: 0,
+  };
   let i = dispCoins.length - 1;
 
   while (i >= 0) {
     if (change >= dispCoins[i]) {
       switch (dispCoins[i]) {
         case 5:
-          fiveDolars++;
+          monedas.fiveDolars += 1;
           break;
         case 2:
-          twoDolars++;
+          monedas.twoDolars += 1;
           break;
         case 1:
-          oneDolar++;
+          monedas.oneDolar += 1;
           break;
         case 0.5:
-          fiftyCent++;
+          monedas.fiftyCent += 1;
           break;
         case 0.1:
-          tenCent++;
+          monedas.tenCent += 1;
           break;
       }
       change = change - dispCoins[i];
@@ -45,7 +47,7 @@ function countCoins(change, dispCoins) {
     }
   }
 
-  return `Ten cents: ${tenCent}\nFifty cents: ${fiftyCent}\nOne dollar: ${oneDolar}\nTwo dollars: ${twoDolars}\nFive dollars: ${fiveDolars}`;
+  return `Ten cents: ${monedas.tenCent}\nFifty cents: ${monedas.fiftyCent}\nOne dollar: ${monedas.oneDolar}\nTwo dollars: ${monedas.twoDolars}\nFive dollars: ${monedas.fiveDolars}`;
 }
 
 let coins = [0.1, 0.5, 1, 2, 5];
