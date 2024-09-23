@@ -34,31 +34,33 @@ function alumnosRedundantes(registro) {
   let alumnosSegundo = new Array();
   let alumnosCoincidentes = new Array();
 
-  for (const key in registro) {
-    if (registro[key].hasOwnProperty('curso') && registro[key].curso === 1) {
-      for (let i = 0; i < registro[key].alumnos.length; i++) {
-        if (!alumnosPrimero.includes(registro[key].alumnos[i])) {
-          alumnosPrimero.push(registro[key].alumnos[i]);
+  registro.forEach(modulo => {
+    if (modulo?.curso === 1) {
+      for (let i = 0; i < modulo.alumnos.length; i++) {
+        if (!alumnosPrimero.includes(modulo.alumnos[i])) {
+          alumnosPrimero.push(modulo.alumnos[i]);
         }
       }
     }
 
-    if (registro[key].hasOwnProperty('curso') && registro[key].curso === 2) {
-      for (let i = 0; i < registro[key].alumnos.length; i++) {
-        if (!alumnosSegundo.includes(registro[key].alumnos[i])) {
-          alumnosSegundo.push(registro[key].alumnos[i]);
+    if (modulo.hasOwnProperty('curso') && modulo.curso === 2) {
+      for (let i = 0; i < modulo.alumnos.length; i++) {
+        if (!alumnosSegundo.includes(modulo.alumnos[i])) {
+          alumnosSegundo.push(modulo.alumnos[i]);
         }
       }
     }
-  }
 
-  for (let i = 0; i < alumnosPrimero.length; i++) {
-    if (alumnosSegundo.includes(alumnosPrimero[i])) {
-      alumnosCoincidentes.push(alumnosPrimero[i]);
+    alumnosSegundo.forEach(alumno => alumnosPrimero.includes(alumno) && alumnosCoincidentes.push(alumno));
+
+    alumnosSegundo.reduce((acc, cur) => {});
+
+    for (let i = 0; i < alumnosPrimero.length; i++) {
+      if (alumnosSegundo.includes(alumnosPrimero[i])) {
+        alumnosCoincidentes.push(alumnosPrimero[i]);
+      }
     }
-  }
-
-  return alumnosCoincidentes;
+  });
 }
 
 const modulos = [

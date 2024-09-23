@@ -16,8 +16,6 @@ function moda(array) {
   let max = 0;
   let numeroModa = 0;
 
-  array = array.sort((a, b) => a - b);
-
   for (let i = 0; i < array.length; i++) {
     let array1 = array.filter(x => x === array[i]);
     if (max < array1.length) {

@@ -13,9 +13,10 @@ importa el orden en el que estén los números en las dos series que construyas.
 function dividedNumbers(array) {
   array = array.sort((a, b) => a - b);
   const primeraParte = array.length / 2;
+  const primerArray = array.slice(0, primeraParte);
+  const segundoArray = array.slice(primeraParte, array.length);
+
   console.log(array);
-  let primerArray = array.slice(0, primeraParte);
-  let segundoArray = array.slice(primeraParte, array.length);
   console.log(`Array menores [${primerArray}] \nArray mayores [${segundoArray}]`);
 }
 

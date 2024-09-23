@@ -20,6 +20,7 @@ function countCoins(change, dispCoins) {
     twoDolars: 0,
     fiveDolars: 0,
   };
+
   let i = dispCoins.length - 1;
 
   while (i >= 0) {
