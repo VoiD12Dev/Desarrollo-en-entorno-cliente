@@ -27,3 +27,33 @@ function fizzBuzz() {
 }
 
 fizzBuzz();
+
+/*
+En clase 
+function fizzBuzz(numero) {
+  const numeroEnCadena = numero.toString();
+
+  if (numeroEnCadena.endsWith('15')) return 'fizzbuzz';
+  if (numeroEnCadena.endsWith('3')) return 'fizz';
+  if (numeroEnCadena.endsWith('5')) return 'buzz';
+
+  return numeroEnCadena
+}
+
+function generarArrayFizzBuzz(longitud) {
+
+  let resultado=[];
+
+  for (let i = 1; i <= longitud; i++) {
+    resultado.push(fizzBuzz(i));
+  }
+
+  return resultado;
+}
+
+const result = generarArrayFizzBuzz(30);
+// console.log(result) // Coercion de typos. CACA
+console.log(result.join('\n'))
+// for(const elemento of resultado) return(elemento)
+
+*/
