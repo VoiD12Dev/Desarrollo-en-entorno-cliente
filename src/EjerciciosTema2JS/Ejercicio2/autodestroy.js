@@ -1,13 +1,14 @@
 const parrafo = document.querySelectorAll('.texto');
 
-const hiddenP = e => {
-  const compruebaClase = e.target;
-  if (compruebaClase.classList.contains('texto')) {
-    if (!compruebaClase.classList.contains('hidden')) {
-      compruebaClase.classList.add('hidden');
-    }
-  }
-};
+//Esto es matar moscas a cañonazos, es una chapuza, visto en clase.
+// const hiddenP = e => {
+//   const compruebaClase = e.target;
+//   if (compruebaClase.classList.contains('texto')) {
+//     if (!compruebaClase.classList.contains('hidden')) {
+//       compruebaClase.classList.add('hidden');
+//     }
+//   }
+// };
 
 const deleteP = e => {
   e.preventDefault();
@@ -16,6 +17,14 @@ const deleteP = e => {
     checkClase.remove();
   }
 };
+
+//Esta es la forma correcta, asignando a cada parrafo un listener.
+function hiddenP(e) {
+  e.target.classList.add('hidden');
+}
+parrafo.forEach(x => {
+  x.addEventListener('click', hiddenP);
+});
 
 const reappearsP = e => {
   const checkButton = e.target;
@@ -28,6 +37,6 @@ const reappearsP = e => {
   }
 };
 
-const esconde = addEventListener('click', hiddenP);
+// const esconde = addEventListener('click', hiddenP);
 const elimina = addEventListener('contextmenu', deleteP);
 const reaparece = addEventListener('click', reappearsP);
